@@ -1,8 +1,4 @@
-import React from "react";
-import Flexi from "../Home/Flexi";
-import hoc from "../HighOrder";
-
-const homeConfig = {
+let homeConfig = {
   items: [
     {
       type: "Card",
@@ -104,21 +100,4 @@ const homeConfig = {
     }
   ]
 };
-class Home extends React.Component {
-  render() {
-
-    const {homeConfig, config, handleOnSubmit, handleFieldChange } = this.props;
-    console.log(homeConfig,"configuration");
-
-
-    console.log(config, "props");
-    return (
-      <Flexi
-        items={config.items}
-        handleOnSubmit={handleOnSubmit}
-        handleFieldChange={handleFieldChange}
-      />
-    );
-  }
-}
-export default hoc(homeConfig)(Home)
+export default homeConfig;

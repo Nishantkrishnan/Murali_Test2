@@ -1,12 +1,107 @@
 import React from "react";
 import Flexi from "../Home/Flexi";
 import hoc from "../HighOrder";
-class Registeration extends React.Component {
-  render() {
-    const { config1,handleOnSubmit,handleFieldChange } = this.props;
+const flexConfigForRegistration= {
+ items: [
+   {
+     type: "Header",
+     props: {
+       label: "Registration",
+       horozintalAlign: "center",
+       verticalAlign:"center"
+     }
+   },
+   {
+     type: "Card",
+     props: {
+       color: "grey",
+       horozintalAlign: "left",
+     },
+     children: {
+       items: [
+         {
+           type: "TexField",
+           props:{
+             inputType:"text",
+             label:"Name",
+             name:"name"
+           }
+         },
+         {
+           type: "TexField",
+           props:{
+             inputType:"email",
+             label:"Email",
+             name:"email"
+           }
+         },
+         {
+           type: "TexField",
+           props:{
+             inputType:"number",
+             label:"Mobile",
+             name:"Message"
+           }
+         },
+         {
+           type: "RadioGruop",
+           props:{
+             label:"Gender",
+             name:"gender",
+             options:[
+               {
+                 label:"Male"
+               },
+               {
+                 label:"Female"
+               }
+             ]
+           }
+         },
+         {
+           type: "TexField",
+           props:{
+             inputType:"password",
+             label:"Password",
+             name:"password"
+           }
+         },
+         {
+           type: "TexField",
+           props:{
+             inputType:"password",
+             label:"Confirm Password",
+             name:"confirmPassword"
+           }
+         },
+         {
+           type: "Button",
+           props:{
+             label:"Register"
+           }
+         }
+       ]
+     }
+   }
+ ]
+}
 
-    console.log(config1, "props");
-    return <Flexi items={config1} handleOnSubmit={handleOnSubmit} handleFieldChange={handleFieldChange} />;
+class Registeration extends React.Component {
+
+
+
+  render() {
+    const { config, handleOnSubmit, handleFieldChange } = this.props;
+
+
+    console.log(config, "props");
+    return (
+      <Flexi
+        items={config.items}
+        handleOnSubmit={handleOnSubmit}
+        handleFieldChange={handleFieldChange}
+      />
+    );
   }
 }
-export default hoc()(Registeration);
+export default hoc(flexConfigForRegistration)(Registeration)
