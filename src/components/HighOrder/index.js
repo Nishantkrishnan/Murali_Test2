@@ -194,22 +194,21 @@ const hoc = () => Component => {
     };
 
     handleOnSubmit = e => {
-       e.preventDefault();
-       let { list } = this.state;
-       console.log(this.state.list);
-       window.alert(this.state.list);
-     };
-     handleFieldChange = event => {
-       let { list } = this.state;
-       const { name, value } = event.target;
-       console.log(name, value);
-       this.setState({
-         list: {
-           ...list,
-           [name]: value
-         }
-       });
-     };
+      e.preventDefault();
+      let { list } = this.state;
+      console.log(this.state.list);
+    };
+    handleFieldChange = event => {
+      let { list } = this.state;
+      const { name, value } = event.target;
+      console.log(name, value);
+      this.setState({
+        list: {
+          ...list,
+          [name]: value
+        }
+      });
+    };
     render() {
       const { list, flexConfigForHome, flexConfigForRegistration } = this.state;
       const { handleOnSubmit, handleFieldChange } = this;

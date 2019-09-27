@@ -3,16 +3,18 @@ import { Card } from "@material-ui/core";
 
 class CardC extends Component {
   render() {
-    console.log(this.props.children, "Cardddddddd");
-    const {propsData}=this.props;
-    let color=propsData.color;
+    console.log(this.props.children, "CardC");
+    const { propsData } = this.props;
+    let color = propsData.color;
     const children = React.Children.map(this.props.children, child => {
       return <div>{child}</div>;
     });
     return (
       <div className="card">
         <div className="cardsinner">
-          <Card style={{color:"red"}}>{children}</Card>
+          <Card style={{ color: color }}>
+<label>{propsData.label}</label>
+          {children}</Card>
         </div>
       </div>
     );

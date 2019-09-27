@@ -7,17 +7,17 @@ import Button from "../Flexi/Buttons";
 import RadioG from "../Flexi/RadioG";
 
 const Flexi = props => {
-  let { items = [] ,handleFieldChange,handleOnSubmit} = props;
+  let { items = [], handleFieldChange, handleOnSubmit } = props;
   console.log(props, "items");
   var nishant = items;
   console.log(nishant, "var");
 
   const FlexiConfig = item => {
     if (item.type === "Card") {
-      console.log(item, "Common");
+      console.log(item, "Card");
       let isChild = "children" in item;
       if (isChild) {
-        console.log(item.children, "Insidechild");
+        console.log(item.children, "Item child");
         return (
           <CardC propsData={item.props}>
             {item.children.items.map((Data, Index) => {
@@ -38,16 +38,24 @@ const Flexi = props => {
     }
     if (item.type === "TexField") {
       console.log(item.type, "TextField is calling");
-      return <TextF propsData={item.props} handleOnSubmit={handleOnSubmit} handleFieldChange={handleFieldChange}/>;
+      return (
+        <TextF
+          propsData={item.props}
+          handleOnSubmit={handleOnSubmit}
+          handleFieldChange={handleFieldChange}
+        />
+      );
     }
 
     if (item.type === "RadioGruop") {
       console.log(item.type, "Radio is calling");
-      return <RadioG propsData={item.props} handleFieldChange={handleFieldChange}/>;
+      return (
+        <RadioG propsData={item.props} handleFieldChange={handleFieldChange} />
+      );
     }
     if (item.type === "Button") {
       console.log(item.type, "Button is calling");
-      return <Button propsData={item.props} handleOnSubmit={handleOnSubmit}/>;
+      return <Button propsData={item.props} handleOnSubmit={handleOnSubmit} />;
     }
   };
   return <div>{nishant.map((item, index) => FlexiConfig(item))}</div>;

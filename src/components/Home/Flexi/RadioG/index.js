@@ -1,12 +1,12 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 const RadioG = props => {
-  let { propsData,handleFieldChange } = props;
+  let { propsData, handleFieldChange } = props;
   let { options } = propsData;
   return (
     <div>
       <div>
-        <Typography variant="h6" color="inherit">
+        <Typography  color="inherit">
           {propsData.label}:
         </Typography>
         <div>

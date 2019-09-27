@@ -6,11 +6,11 @@ class CardsC extends React.Component {
     let { propsData } = this.props;
 
     let color=propsData.color;
-    console.log(propsData, "Mcards");
+    console.log(color, "Mcards");
     return (
       <div className="card">
         {propsData.cards.map((item, index) => (
-          <Card ><span style={{color:color}}>{item.label}</span></Card>
+          <Card  style={{color:item.color}}><span><label > {item.label}</label></span></Card>
         ))}
       </div>
     );
