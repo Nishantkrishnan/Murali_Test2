@@ -194,7 +194,7 @@ const hoc = () => Component => {
     };
 
     handleOnSubmit = e => {
-      e.preventDefault();
+      //  e.preventDefault();
       let { list } = this.state;
       console.log(this.state.list);
     };

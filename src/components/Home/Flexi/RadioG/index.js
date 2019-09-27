@@ -17,7 +17,7 @@ const RadioG = props => {
                   name={propsData.name}
                   type="radio"
                   value={option.label}
-                  onChange={propsData.handleFieldChange}
+                  onChange={handleFieldChange}
                 />
                 {option.label}
               </React.Fragment>
